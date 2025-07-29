@@ -22,6 +22,18 @@
 				margin: 2rem auto;
 				padding: 2rem;
 				border: 4px dashed #ff69b4;
+				display: none;
+				animation: fadeIn 1s ease forwards;
+			}
+			@keyframes fadeIn {
+				0% {
+					opacity: 0;
+					transform: scale(0.9);
+				}
+				100% {
+					opacity: 1;
+					transform: scale(1);
+				}
 			}
 			h1 {
 				font-size: 2.5rem;
@@ -39,10 +51,32 @@
 				font-style: italic;
 				color: #777;
 			}
+			#openBtn {
+				background: #ff69b4;
+				border: none;
+				padding: 1rem 2rem;
+				color: white;
+				font-size: 1.2rem;
+				border-radius: 8px;
+				cursor: pointer;
+				animation: pulse 1.5s infinite;
+			}
+			@keyframes pulse {
+				0% {
+					transform: scale(1);
+				}
+				50% {
+					transform: scale(1.05);
+				}
+				100% {
+					transform: scale(1);
+				}
+			}
 		</style>
 	</head>
 	<body>
-		<div class="card">
+		<button id="openBtn">🎁 Click để mở thiệp 🎁</button>
+		<div class="card" id="card">
 			<h1>🎉 THIỆP MỜI HỌP LỚP 🎉</h1>
 			<h2>12A7 - Niên khóa 2008–2011</h2>
 			<p class="emoji">😎 Gặp lại nhau để xác minh ai già nhanh nhất 😎</p>
@@ -57,5 +91,14 @@
 			<p class="emoji">📸 Nhớ mặc đẹp, cười tươi, và tới đủ nhé!</p>
 			<div class="footer">*Vắng mặt sẽ bị gạch tên khỏi group kín Facebook 😤</div>
 		</div>
+
+		<script>
+			const btn = document.getElementById('openBtn');
+			const card = document.getElementById('card');
+			btn.addEventListener('click', () => {
+				btn.style.display = 'none';
+				card.style.display = 'block';
+			});
+		</script>
 	</body>
 </html>
